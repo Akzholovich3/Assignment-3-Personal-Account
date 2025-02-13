@@ -1,0 +1,30 @@
+@startuml
+class Transaction {
+    - amount: float
+    - timestamp: datetime
+    - type: str
+    + __init__(amount: float, type: str)
+    + __str__(): str
+}
+
+class BankAccount {
+    - account_id: int
+    - owner: str
+    - balance: float
+    - transactions: list
+    + __init__(account_id: int, owner: str)
+    + deposit(amount: float)
+    + withdraw(amount: float)
+    + get_transaction_history(): str
+    + get_balance(): float
+    + get_account_id(): int
+    + set_account_id(account_id: int)
+    + get_owner(): str
+    + set_owner(owner: str)
+    + __str__(): str
+    + __add__(amount: float)
+    + __sub__(amount: float)
+}
+
+BankAccount "1" -- "0..*" Transaction : contains
+@enduml
